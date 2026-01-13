@@ -233,4 +233,72 @@ public static class InRangeExtension
 #endif
     public static bool InRange(int start, int end, int? count)
         => count != null && start >= 0 && end >= start && end <= count;
+
+    /// <summary>
+    /// Determines whether the specified indices are within the valid range of the 2D array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="array">The 2D array.</param>
+    /// <param name="i">The first dimension index.</param>
+    /// <param name="j">The second dimension index.</param>
+    /// <returns>True if the indices are valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this T[,] array, int i, int j)
+        => array != null && i >= 0 && i < array.GetLength(0) && j >= 0 && j < array.GetLength(1);
+
+    /// <summary>
+    /// Determines whether the specified index ranges [iStart, iEnd), [jStart, jEnd) are within the valid range of the 2D array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="array">The 2D array.</param>
+    /// <param name="iStart">The start index for the first dimension (inclusive).</param>
+    /// <param name="iEnd">The end index for the first dimension (exclusive).</param>
+    /// <param name="jStart">The start index for the second dimension (inclusive).</param>
+    /// <param name="jEnd">The end index for the second dimension (exclusive).</param>
+    /// <returns>True if the ranges are valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this T[,] array, int iStart, int iEnd, int jStart, int jEnd)
+        => array != null && iStart >= 0 && iEnd >= iStart && iEnd <= array.GetLength(0)
+           && jStart >= 0 && jEnd >= jStart && jEnd <= array.GetLength(1);
+
+    /// <summary>
+    /// Determines whether the specified indices are within the valid range of the 3D array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="array">The 3D array.</param>
+    /// <param name="i">The first dimension index.</param>
+    /// <param name="j">The second dimension index.</param>
+    /// <param name="k">The third dimension index.</param>
+    /// <returns>True if the indices are valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this T[,,] array, int i, int j, int k)
+        => array != null && i >= 0 && i < array.GetLength(0)
+           && j >= 0 && j < array.GetLength(1)
+           && k >= 0 && k < array.GetLength(2);
+
+    /// <summary>
+    /// Determines whether the specified index ranges [iStart, iEnd), [jStart, jEnd), [kStart, kEnd) are within the valid range of the 3D array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="array">The 3D array.</param>
+    /// <param name="iStart">The start index for the first dimension (inclusive).</param>
+    /// <param name="iEnd">The end index for the first dimension (exclusive).</param>
+    /// <param name="jStart">The start index for the second dimension (inclusive).</param>
+    /// <param name="jEnd">The end index for the second dimension (exclusive).</param>
+    /// <param name="kStart">The start index for the third dimension (inclusive).</param>
+    /// <param name="kEnd">The end index for the third dimension (exclusive).</param>
+    /// <returns>True if the ranges are valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this T[,,] array, int iStart, int iEnd, int jStart, int jEnd, int kStart, int kEnd)
+        => array != null && iStart >= 0 && iEnd >= iStart && iEnd <= array.GetLength(0)
+           && jStart >= 0 && jEnd >= jStart && jEnd <= array.GetLength(1)
+           && kStart >= 0 && kEnd >= kStart && kEnd <= array.GetLength(2);
 }
