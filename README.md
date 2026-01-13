@@ -16,16 +16,16 @@ Lightweight C# extension library for checking if an index is within the valid ra
 - Namespace: `System.InRange`
 - Static class: `InRangeExtension`
 - Key methods (overview):
-  - `bool InRange(this IEnumerable<T> collection, int index)`
-  - `bool InRange(this ICollection<T> collection, int index)`
-  - `bool InRange(this IList<T> list, int index)`
-  - `bool InRange(this IQueryable<T> queryable, int index)`
-  - `bool InRange(this T[] array, int index)`
+  - `bool InRange(this IEnumerable<T> source, int index)`
+  - `bool InRange(this ICollection<T> source, int index)`
+  - `bool InRange(this IList<T> source, int index)`
+  - `bool InRange(this IQueryable<T> source, int index)`
+  - `bool InRange(this T[] source, int index)`
   - `bool InRange(int index, int? count)`
 
 ## Behavior and features
 
-- Returns `true` if the index is within `[0, collection.Count)`; otherwise, returns `false`
+- Returns `true` if the index is within `[0, source.Count)`; otherwise, returns `false`
 - Handles `null` collections gracefully (returns `false`)
 - Supports all major .NET collection interfaces and arrays
 - Compatible with a wide range of .NET targets (see below)
