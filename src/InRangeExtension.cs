@@ -92,6 +92,7 @@ public static class InRangeExtension
     /// <param name="index">The index to check.</param>
     /// <returns>True if the index is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this List<T> list, int index)
@@ -105,6 +106,7 @@ public static class InRangeExtension
     /// <param name="index">The index to check.</param>
     /// <returns>True if the index is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this ArraySegment<T> segment, int index)
@@ -132,6 +134,7 @@ public static class InRangeExtension
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this IQueryable<T> ts, int start, int end)
@@ -146,6 +149,7 @@ public static class InRangeExtension
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this IEnumerable<T> ts, int start, int end)
@@ -160,6 +164,7 @@ public static class InRangeExtension
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this ICollection<T> collection, int start, int end)
@@ -174,6 +179,7 @@ public static class InRangeExtension
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this IList<T> list, int start, int end)
@@ -188,6 +194,7 @@ public static class InRangeExtension
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this T[] array, int start, int end)
@@ -202,6 +209,7 @@ public static class InRangeExtension
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this List<T> list, int start, int end)
@@ -216,6 +224,7 @@ public static class InRangeExtension
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this ArraySegment<T> segment, int start, int end)
@@ -229,6 +238,7 @@ public static class InRangeExtension
     /// <param name="count">The number of elements in the collection.</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange(int start, int end, int? count)
@@ -243,6 +253,7 @@ public static class InRangeExtension
     /// <param name="j">The second dimension index.</param>
     /// <returns>True if the indices are valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this T[,] array, int i, int j)
@@ -259,6 +270,7 @@ public static class InRangeExtension
     /// <param name="jEnd">The end index for the second dimension (exclusive).</param>
     /// <returns>True if the ranges are valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this T[,] array, int iStart, int iEnd, int jStart, int jEnd)
@@ -275,6 +287,7 @@ public static class InRangeExtension
     /// <param name="k">The third dimension index.</param>
     /// <returns>True if the indices are valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this T[,,] array, int i, int j, int k)
@@ -295,10 +308,38 @@ public static class InRangeExtension
     /// <param name="kEnd">The end index for the third dimension (exclusive).</param>
     /// <returns>True if the ranges are valid; otherwise, false.</returns>
 #if !NET35 && !NET40
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
     public static bool InRange<T>(this T[,,] array, int iStart, int iEnd, int jStart, int jEnd, int kStart, int kEnd)
         => array != null && iStart >= 0 && iEnd >= iStart && iEnd <= array.GetLength(0)
            && jStart >= 0 && jEnd >= jStart && jEnd <= array.GetLength(1)
            && kStart >= 0 && kEnd >= kStart && kEnd <= array.GetLength(2);
+
+#if !NET35 && !NET40
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="IReadOnlyList{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="list">The read-only list.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this IReadOnlyList<T> list, int index)
+        => InRange(index, list?.Count);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="IReadOnlyList{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="list">The read-only list.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this IReadOnlyList<T> list, int start, int end)
+        => InRange(start, end, list?.Count);
+
+#endif
 }
