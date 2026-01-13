@@ -148,6 +148,8 @@ public static class InRangeExtension
 
     #region IReadOnlyList<T>
 
+#if !NET35 && !NET40
+
     /// <summary>
     /// Determines whether the specified index is within the valid range of the <see cref="IReadOnlyList{T}"/>.
     /// </summary>
@@ -155,10 +157,7 @@ public static class InRangeExtension
     /// <param name="source">The read-only list.</param>
     /// <param name="index">The index to check.</param>
     /// <returns>True if the index is valid; otherwise, false.</returns>
-#if !NET35 && !NET40
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
     public static bool InRange<T>(this IReadOnlyList<T> source, int index)
         => InRange(index, source?.Count);
 
@@ -170,12 +169,11 @@ public static class InRangeExtension
     /// <param name="start">The start index (inclusive).</param>
     /// <param name="end">The end index (exclusive).</param>
     /// <returns>True if the range is valid; otherwise, false.</returns>
-#if !NET35 && !NET40
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
     public static bool InRange<T>(this IReadOnlyList<T> source, int start, int end)
         => InRange(start, end, source?.Count);
+
+#endif
 
     #endregion IReadOnlyList<T>
 
