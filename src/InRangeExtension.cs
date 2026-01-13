@@ -85,6 +85,32 @@ public static class InRangeExtension
         => InRange(index, array?.Length);
 
     /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="List{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="list">The list.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this List<T> list, int index)
+        => InRange(index, list?.Count);
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="ArraySegment{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="segment">The array segment.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this ArraySegment<T> segment, int index)
+        => InRange(index, segment.Count);
+
+    /// <summary>
     /// Determines whether the specified index is within the valid range for a collection of the given count.
     /// </summary>
     /// <param name="index">The index to check.</param>

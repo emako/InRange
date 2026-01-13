@@ -18,9 +18,19 @@ public sealed class InRangeTests
     }
 
     [Fact]
-    public void List_InRange_Works()
+    public void IList_InRange_Works()
     {
         IList<string> list = ["a", "b"];
+        Assert.True(list.InRange(0));
+        Assert.True(list.InRange(1));
+        Assert.False(list.InRange(2));
+        Assert.False(list.InRange(-1));
+    }
+
+    [Fact]
+    public void List_InRange_Works()
+    {
+        List<string> list = ["a", "b"];
         Assert.True(list.InRange(0));
         Assert.True(list.InRange(1));
         Assert.False(list.InRange(2));
