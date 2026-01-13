@@ -30,6 +30,7 @@ Lightweight C# extension library for checking if an index is within the valid ra
 - Supports all major .NET collection interfaces and arrays
 - Compatible with a wide range of .NET targets (see below)
 - Aggressive inlining for performance on supported platforms
+- **Performance Note:** For `IEnumerable<T>` and `IQueryable<T>`, calling `Count()` will enumerate the entire collection if it does not implement `ICollection<T>`, `IReadOnlyCollection<T>`, or similar. For best performance, prefer using overloads for `ICollection<T>`, `IReadOnlyCollection<T>`, `IList<T>`, `IReadOnlyList<T>`, `List<T>`, or arrays whenever possible.
 
 ## Examples
 
