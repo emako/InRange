@@ -340,54 +340,6 @@ public static class InRangeExtension
 
     #endregion List<T>
 
-    #region ArraySegment<T>
-
-    /// <summary>
-    /// Determines whether the specified index is within the valid range of the <see cref="ArraySegment{T}"/>.
-    /// </summary>
-    /// <typeparam name="T">The type of the elements.</typeparam>
-    /// <param name="source">The array segment.</param>
-    /// <param name="index">The index to check.</param>
-    /// <returns>True if the index is valid; otherwise, false.</returns>
-#if !NET35 && !NET40
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static bool InRange<T>(this ArraySegment<T> source, int index)
-        => InRange(index, source.Count);
-
-    /// <summary>
-    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="ArraySegment{T}"/>.
-    /// </summary>
-    /// <typeparam name="T">The type of the elements.</typeparam>
-    /// <param name="source">The array segment.</param>
-    /// <param name="start">The start index (inclusive).</param>
-    /// <param name="end">The end index (exclusive).</param>
-    /// <returns>True if the range is valid; otherwise, false.</returns>
-#if !NET35 && !NET40
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static bool InRange<T>(this ArraySegment<T> source, int start, int end)
-        => InRange(start, end, source.Count);
-
-    /// <summary>
-    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="ArraySegment{T}"/>.
-    /// </summary>
-    /// <typeparam name="T">The type of the elements.</typeparam>
-    /// <param name="source">The array segment.</param>
-    /// <param name="start">The start index (inclusive).</param>
-    /// <param name="length">The length of the range.</param>
-    /// <returns>True if the range is valid; otherwise, false.</returns>
-#if !NET35 && !NET40
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static bool InRangeLength<T>(this ArraySegment<T> source, int start, int length)
-        => InRange(start, start + length, source.Count);
-
-    #endregion ArraySegment<T>
-
     #region Array
 
     /// <summary>
@@ -535,6 +487,226 @@ public static class InRangeExtension
     }
 
     #endregion Multi-dimensional Array
+
+    #region ArraySegment<T>
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="ArraySegment{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The array segment.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this ArraySegment<T> source, int index)
+        => InRange(index, source.Count);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="ArraySegment{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The array segment.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this ArraySegment<T> source, int start, int end)
+        => InRange(start, end, source.Count);
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="ArraySegment{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The array segment.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRangeLength<T>(this ArraySegment<T> source, int start, int length)
+        => InRange(start, start + length, source.Count);
+
+    #endregion ArraySegment<T>
+
+    #region Span
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="Span{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The span.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this Span<T> source, int index)
+        => InRange(index, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="Span{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The span.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this Span<T> source, int start, int end)
+        => InRange(start, end, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="Span{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The span.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRangeLength<T>(this Span<T> source, int start, int length)
+        => InRange(start, start + length, source.Length);
+
+#endif
+
+    #endregion Span
+
+    #region ReadOnlySpan
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="ReadOnlySpan{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The read-only span.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this ReadOnlySpan<T> source, int index)
+        => InRange(index, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="ReadOnlySpan{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The read-only span.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this ReadOnlySpan<T> source, int start, int end)
+        => InRange(start, end, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="ReadOnlySpan{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The read-only span.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRangeLength<T>(this ReadOnlySpan<T> source, int start, int length)
+        => InRange(start, start + length, source.Length);
+
+#endif
+
+    #endregion ReadOnlySpan
+
+    #region Memory
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="Memory{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The memory.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this Memory<T> source, int index)
+        => InRange(index, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="Memory{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The memory.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this Memory<T> source, int start, int end)
+        => InRange(start, end, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="Memory{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The memory.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRangeLength<T>(this Memory<T> source, int start, int length)
+        => InRange(start, start + length, source.Length);
+
+#endif
+
+    #endregion Memory
+
+    #region Memory
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="ReadOnlyMemory{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The read-only memory.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this ReadOnlyMemory<T> source, int index)
+        => InRange(index, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="ReadOnlyMemory{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The read-only memory.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRange<T>(this ReadOnlyMemory<T> source, int start, int end)
+        => InRange(start, end, source.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="ReadOnlyMemory{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The read-only memory.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool InRangeLength<T>(this ReadOnlyMemory<T> source, int start, int length)
+        => InRange(start, start + length, source.Length);
+
+#endif
+
+    #endregion Memory
 
     #region Static
 
