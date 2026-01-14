@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 #if !NET35 && !NET40
@@ -205,6 +207,148 @@ public static class InRangeExtension
         => InRange(start, start + length, source?.Count);
 
     #endregion IList<T>
+
+    #region ICollection (non-generic)
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="System.Collections.ICollection"/>
+    /// </summary>
+    /// <param name="source">The non-generic collection.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange(this ICollection source, int index)
+        => source != null && index >= 0 && index < source.Count;
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="System.Collections.ICollection"/>
+    /// </summary>
+    /// <param name="source">The non-generic collection.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange(this ICollection source, int start, int end)
+        => source != null && start >= 0 && end >= start && end <= source.Count;
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="System.Collections.ICollection"/>
+    /// </summary>
+    /// <param name="source">The non-generic collection.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRangeLength(this ICollection source, int start, int length)
+        => source != null && start >= 0 && length >= 0 && (start + length) <= source.Count;
+
+    #endregion ICollection (non-generic)
+
+    #region IList (non-generic)
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="System.Collections.IList"/>
+    /// </summary>
+    /// <param name="source">The non-generic list.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange(this IList source, int index)
+        => source != null && index >= 0 && index < source.Count;
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="System.Collections.IList"/>
+    /// </summary>
+    /// <param name="source">The non-generic list.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange(this IList source, int start, int end)
+        => source != null && start >= 0 && end >= start && end <= source.Count;
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="System.Collections.IList"/>
+    /// </summary>
+    /// <param name="source">The non-generic list.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRangeLength(this IList source, int start, int length)
+        => source != null && start >= 0 && length >= 0 && (start + length) <= source.Count;
+
+    #endregion IList (non-generic)
+
+    #region ObservableCollection<T>
+
+#if !NET35
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the <see cref="System.Collections.ObjectModel.ObservableCollection{T}"/>
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The observable collection.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+#if !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this ObservableCollection<T> source, int index)
+        => InRange(index, source?.Count);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the <see cref="System.Collections.ObjectModel.ObservableCollection{T}"/>
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The observable collection.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange<T>(this ObservableCollection<T> source, int start, int end)
+        => InRange(start, end, source?.Count);
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the <see cref="System.Collections.ObjectModel.ObservableCollection{T}"/>
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The observable collection.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRangeLength<T>(this ObservableCollection<T> source, int start, int length)
+        => InRange(start, start + length, source?.Count);
+
+#endif
+
+    #endregion ObservableCollection<T>
 
     #region IReadOnlyList<T>
 
