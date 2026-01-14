@@ -1,7 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
+
+#if !NET35
+
+using System.Collections.ObjectModel;
+
+#endif
 
 #if !NET35 && !NET40
 
