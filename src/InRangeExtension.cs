@@ -19,7 +19,7 @@ namespace System.InRange;
 /// <summary>
 /// Provides extension methods for checking if an index is within the valid range of various collection types.
 /// </summary>
-public static class InRangeExtension
+public static partial class InRangeExtension
 {
     #region IQueryable<T>
 
@@ -490,6 +490,50 @@ public static class InRangeExtension
     #endregion List<T>
 
     #region Array
+
+    /// <summary>
+    /// Determines whether the specified index is within the valid range of the array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The array.</param>
+    /// <param name="index">The index to check.</param>
+    /// <returns>True if the index is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange(this Array source, int index)
+        => InRange(index, source?.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, end) is within the valid range of the array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The array.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="end">The end index (exclusive).</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRange(this Array source, int start, int end)
+        => InRange(start, end, source?.Length);
+
+    /// <summary>
+    /// Determines whether the specified range [start, start+length) is within the valid range of the array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The array.</param>
+    /// <param name="start">The start index (inclusive).</param>
+    /// <param name="length">The length of the range.</param>
+    /// <returns>True if the range is valid; otherwise, false.</returns>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static bool InRangeLength(this Array source, int start, int length)
+        => InRange(start, start + length, source?.Length);
 
     /// <summary>
     /// Determines whether the specified index is within the valid range of the array.
