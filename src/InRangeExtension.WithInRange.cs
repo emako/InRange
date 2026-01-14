@@ -438,6 +438,62 @@ public static partial class InRangeExtension
 
     #endregion Array
 
+    #region Multi-dimensional Array
+
+    /// <summary>
+    /// Returns the source and outputs whether the specified indices are within the valid range of the two-dimensional array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static T[,] WithInRange<T>(this T[,] source, int i, int j, out bool result)
+    {
+        result = InRange(source, i, j);
+        return source!;
+    }
+
+    /// <summary>
+    /// Returns the source and outputs whether the specified ranges are within the valid range of the two-dimensional array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static T[,] WithInRange<T>(this T[,] source, int iStart, int iEnd, int jStart, int jEnd, out bool result)
+    {
+        result = InRange(source, iStart, iEnd, jStart, jEnd);
+        return source!;
+    }
+
+    /// <summary>
+    /// Returns the source and outputs whether the specified indices are within the valid range of the three-dimensional array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static T[,,] WithInRange<T>(this T[,,] source, int i, int j, int k, out bool result)
+    {
+        result = InRange(source, i, j, k);
+        return source!;
+    }
+
+    /// <summary>
+    /// Returns the source and outputs whether the specified ranges are within the valid range of the three-dimensional array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static T[,,] WithInRange<T>(this T[,,] source, int iStart, int iEnd, int jStart, int jEnd, int kStart, int kEnd, out bool result)
+    {
+        result = InRange(source, iStart, iEnd, jStart, jEnd, kStart, kEnd);
+        return source!;
+    }
+
+    #endregion Multi-dimensional Array
+
     #region ArraySegment<T>
 
     /// <summary>

@@ -479,6 +479,58 @@ public static partial class InRangeExtension
     #region Multi-dimensional Array
 
     /// <summary>
+    /// Throws <see cref="ArgumentOutOfRangeException"/> if the specified indices are out of range for the 2D array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static void CheckInRange<T>(this T[,] source, int i, int j)
+    {
+        if (!source.InRange(i, j))
+            throw new ArgumentOutOfRangeException();
+    }
+
+    /// <summary>
+    /// Throws <see cref="ArgumentOutOfRangeException"/> if the specified ranges are out of range for the 2D array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static void CheckInRange<T>(this T[,] source, int iStart, int iEnd, int jStart, int jEnd)
+    {
+        if (!source.InRange(iStart, iEnd, jStart, jEnd))
+            throw new ArgumentOutOfRangeException();
+    }
+
+    /// <summary>
+    /// Throws <see cref="ArgumentOutOfRangeException"/> if the specified indices are out of range for the 3D array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static void CheckInRange<T>(this T[,,] source, int i, int j, int k)
+    {
+        if (!source.InRange(i, j, k))
+            throw new ArgumentOutOfRangeException();
+    }
+
+    /// <summary>
+    /// Throws <see cref="ArgumentOutOfRangeException"/> if the specified ranges are out of range for the 3D array.
+    /// </summary>
+#if !NET35 && !NET40
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static void CheckInRange<T>(this T[,,] source, int iStart, int iEnd, int jStart, int jEnd, int kStart, int kEnd)
+    {
+        if (!source.InRange(iStart, iEnd, jStart, jEnd, kStart, kEnd))
+            throw new ArgumentOutOfRangeException();
+    }
+
+    /// <summary>
     /// Throws ArgumentOutOfRangeException if the index is out of range for the N-dimensional array.
     /// </summary>
 #if !NET35 && !NET40
