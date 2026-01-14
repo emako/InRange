@@ -1,4 +1,4 @@
-![logo](branding/icon.png)
+![logo](https://raw.githubusercontent.com/emako/InRange/refs/heads/master/branding/icon.png)
 
 [![GitHub license](https://img.shields.io/github/license/emako/InRange)](https://github.com/emako/InRange/blob/master/LICENSE) [![NuGet](https://img.shields.io/nuget/v/InRange.svg)](https://nuget.org/packages/InRange) [![Actions](https://github.com/emako/InRange/actions/workflows/library.nuget.yml/badge.svg)](https://github.com/emako/InRange/actions/workflows/library.nuget.yml)
 
