@@ -30,7 +30,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this IQueryable<T> source, int index)
+    public static void CheckInRange<T>(this IQueryable<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -43,7 +43,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this IQueryable<T> source, int start, int end)
+    public static void CheckInRange<T>(this IQueryable<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -56,7 +56,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength<T>(this IQueryable<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this IQueryable<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -73,7 +73,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this IEnumerable<T> source, int index)
+    public static void CheckInRange<T>(this IEnumerable<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -86,7 +86,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this IEnumerable<T> source, int start, int end)
+    public static void CheckInRange<T>(this IEnumerable<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -99,7 +99,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength<T>(this IEnumerable<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this IEnumerable<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -116,7 +116,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this ICollection<T> source, int index)
+    public static void CheckInRange<T>(this ICollection<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -129,7 +129,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this ICollection<T> source, int start, int end)
+    public static void CheckInRange<T>(this ICollection<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -142,7 +142,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength<T>(this ICollection<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this ICollection<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -159,7 +159,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this IList<T> source, int index)
+    public static void CheckInRange<T>(this IList<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -172,7 +172,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this IList<T> source, int start, int end)
+    public static void CheckInRange<T>(this IList<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -185,7 +185,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength<T>(this IList<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this IList<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -202,7 +202,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange(this ICollection source, int index)
+    public static void CheckInRange(this ICollection source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -215,7 +215,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange(this ICollection source, int start, int end)
+    public static void CheckInRange(this ICollection source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -228,7 +228,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength(this ICollection source, int start, int length)
+    public static void CheckInRangeLength(this ICollection source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -245,7 +245,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange(this IList source, int index)
+    public static void CheckInRange(this IList source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -258,7 +258,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange(this IList source, int start, int end)
+    public static void CheckInRange(this IList source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -271,7 +271,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength(this IList source, int start, int length)
+    public static void CheckInRangeLength(this IList source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -286,7 +286,7 @@ public static partial class InRangeExtension
     /// <summary>
     /// Throws ArgumentOutOfRangeException if the index is out of range for the ObservableCollection.
     /// </summary>
-    public static void CheckRange<T>(this ObservableCollection<T> source, int index)
+    public static void CheckInRange<T>(this ObservableCollection<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -295,7 +295,7 @@ public static partial class InRangeExtension
     /// <summary>
     /// Throws ArgumentOutOfRangeException if the range [start, end) is out of range for the ObservableCollection.
     /// </summary>
-    public static void CheckRange<T>(this ObservableCollection<T> source, int start, int end)
+    public static void CheckInRange<T>(this ObservableCollection<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -304,7 +304,7 @@ public static partial class InRangeExtension
     /// <summary>
     /// Throws ArgumentOutOfRangeException if the range [start, start+length) is out of range for the ObservableCollection.
     /// </summary>
-    public static void CheckRangeLength<T>(this ObservableCollection<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this ObservableCollection<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -322,7 +322,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the index is out of range for the IReadOnlyList.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this IReadOnlyList<T> source, int index)
+    public static void CheckInRange<T>(this IReadOnlyList<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -332,7 +332,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, end) is out of range for the IReadOnlyList.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this IReadOnlyList<T> source, int start, int end)
+    public static void CheckInRange<T>(this IReadOnlyList<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -342,7 +342,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, start+length) is out of range for the IReadOnlyList.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRangeLength<T>(this IReadOnlyList<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this IReadOnlyList<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -360,7 +360,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the index is out of range for the IReadOnlyCollection.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this IReadOnlyCollection<T> source, int index)
+    public static void CheckInRange<T>(this IReadOnlyCollection<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -370,7 +370,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, end) is out of range for the IReadOnlyCollection.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this IReadOnlyCollection<T> source, int start, int end)
+    public static void CheckInRange<T>(this IReadOnlyCollection<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -380,7 +380,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, start+length) is out of range for the IReadOnlyCollection.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRangeLength<T>(this IReadOnlyCollection<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this IReadOnlyCollection<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -399,7 +399,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this List<T> source, int index)
+    public static void CheckInRange<T>(this List<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -412,7 +412,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this List<T> source, int start, int end)
+    public static void CheckInRange<T>(this List<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -425,7 +425,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength<T>(this List<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this List<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -442,7 +442,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this T[] source, int index)
+    public static void CheckInRange<T>(this T[] source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -455,7 +455,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this T[] source, int start, int end)
+    public static void CheckInRange<T>(this T[] source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -468,7 +468,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength<T>(this T[] source, int start, int length)
+    public static void CheckInRangeLength<T>(this T[] source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -485,7 +485,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange(this Array source, int index)
+    public static void CheckInRange(this Array source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException();
@@ -502,7 +502,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this ArraySegment<T> source, int index)
+    public static void CheckInRange<T>(this ArraySegment<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -515,7 +515,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRange<T>(this ArraySegment<T> source, int start, int end)
+    public static void CheckInRange<T>(this ArraySegment<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -528,7 +528,7 @@ public static partial class InRangeExtension
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static void CheckRangeLength<T>(this ArraySegment<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this ArraySegment<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -544,7 +544,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the index is out of range for the Span.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this Span<T> source, int index)
+    public static void CheckInRange<T>(this Span<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -554,7 +554,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, end) is out of range for the Span.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this Span<T> source, int start, int end)
+    public static void CheckInRange<T>(this Span<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -564,7 +564,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, start+length) is out of range for the Span.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRangeLength<T>(this Span<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this Span<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -582,7 +582,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the index is out of range for the ReadOnlySpan.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this ReadOnlySpan<T> source, int index)
+    public static void CheckInRange<T>(this ReadOnlySpan<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -592,7 +592,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, end) is out of range for the ReadOnlySpan.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this ReadOnlySpan<T> source, int start, int end)
+    public static void CheckInRange<T>(this ReadOnlySpan<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -601,7 +601,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, start+length) is out of range for the ReadOnlySpan.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRangeLength<T>(this ReadOnlySpan<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this ReadOnlySpan<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -617,7 +617,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the index is out of range for the Memory.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this Memory<T> source, int index)
+    public static void CheckInRange<T>(this Memory<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -626,7 +626,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, end) is out of range for the Memory.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this Memory<T> source, int start, int end)
+    public static void CheckInRange<T>(this Memory<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -635,7 +635,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, start+length) is out of range for the Memory.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRangeLength<T>(this Memory<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this Memory<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
@@ -652,7 +652,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the index is out of range for the ReadOnlyMemory.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this ReadOnlyMemory<T> source, int index)
+    public static void CheckInRange<T>(this ReadOnlyMemory<T> source, int index)
     {
         if (!source.InRange(index))
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -662,7 +662,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, end) is out of range for the ReadOnlyMemory.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRange<T>(this ReadOnlyMemory<T> source, int start, int end)
+    public static void CheckInRange<T>(this ReadOnlyMemory<T> source, int start, int end)
     {
         if (!source.InRange(start, end))
             throw new ArgumentOutOfRangeException();
@@ -672,7 +672,7 @@ public static partial class InRangeExtension
     /// Throws ArgumentOutOfRangeException if the range [start, start+length) is out of range for the ReadOnlyMemory.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void CheckRangeLength<T>(this ReadOnlyMemory<T> source, int start, int length)
+    public static void CheckInRangeLength<T>(this ReadOnlyMemory<T> source, int start, int length)
     {
         if (!source.InRangeLength(start, length))
             throw new ArgumentOutOfRangeException();
