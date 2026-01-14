@@ -27,7 +27,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <NoWarn>$(NoWarn);NU1902;NU1903;NETSDK1215;CA1510;</NoWarn>
+    <NoWarn>$(NoWarn);NU1902;NU1903;NETSDK1215;CA1510;CA2208;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
