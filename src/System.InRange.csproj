@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>InRange</PackageId>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
-    <Version>$(VersionPrefix)1.0.0</Version>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Version>$(VersionPrefix)1.0.1</Version>
     <Authors>ema</Authors>
     <Description>Provides extension methods for checking if an index is within the valid range of arrays and collections, supporting IEnumerable, ICollection, IList, IQueryable, and arrays.</Description>
     <PackageProjectUrl>https://github.com/emako/InRange</PackageProjectUrl>
@@ -16,7 +16,7 @@
     <PackageTags>range;index;extension;collection;array;IEnumerable;ICollection;IList;IQueryable;dotnet;utility</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageIcon>icon.png</PackageIcon>
+    <PackageIcon>Logo.png</PackageIcon>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <DebugType>portable</DebugType>
@@ -32,6 +32,6 @@
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath=""/>
-    <None Include="..\branding\icon.png" Pack="true" PackagePath=""/>
+    <None Include="..\Logo.png" Pack="true" PackagePath=""/>
   </ItemGroup>
 </Project>
